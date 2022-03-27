@@ -25,7 +25,7 @@ on:
 # Set the Job #
 ###############
 jobs:
-  build:
+  linter:
     # Name the Job
     name: Lint Code Base
     # Set the agent to run on
@@ -54,7 +54,8 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  docker:
+  dockerhub:
+    needs: linter
     runs-on: ubuntu-latest
     steps:
       -
