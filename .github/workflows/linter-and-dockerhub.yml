@@ -4,7 +4,7 @@
 ## Super Linter GitHub Actions ##
 #################################
 #################################
-name: Lint Code Base
+name: Lint, Docker Build, and Push to Docker Hub
 
 #############################
 # Start the job on all push #
@@ -52,6 +52,7 @@ jobs:
 
   docker:
     name: Docker Build and Push
+    needs: linter
     runs-on: ubuntu-latest
     steps:
       -
